@@ -10,8 +10,7 @@ function Verifyemail() {
     async function verify() {
       await axios
         .get(
-          `process.env.REACT_APP_BACKEND_URL
-/api/users/confirmation/` + id
+          `${process.env.REACT_APP_BACKEND_URL}/api/users/confirmation/` + id
         )
         .then((res) => {
           toast.info("Verifying email...", {
