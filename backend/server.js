@@ -6,7 +6,7 @@ const express = require('express');
 const cors = require('cors');
 const { errorHandler } = require('./middleware/errorMiddleware.js');
 
-connectDB();
+
 
 const app = express();
 
@@ -23,6 +23,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use('/api/users', require('./routes/userRoutes'));
 app.use(errorHandler);
 
-app.listen(ServerPort, () => console.log(`listening on port ${ServerPort}`));
+connectDB().then(()=>{
+  app.listen(ServerPort, () => console.log(`listening on port ${ServerPort}`));
+});
 
 module.exports = app;
