@@ -29,7 +29,8 @@ function Otp() {
     // }
     await axios
       .post(
-        `http://localhost:8000/api/users/otp/${localStorage.getItem(
+        `process.env.REACT_APP_BACKEND_URL
+/api/users/otp/${localStorage.getItem(
           "otpToken"
         )}`,
         formData

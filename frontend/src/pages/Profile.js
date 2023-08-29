@@ -18,7 +18,8 @@ function Profile() {
     };
     async function getUser() {
       await axios
-        .get(`http://localhost:8000/api/users/me`, config)
+        .get(`process.env.REACT_APP_BACKEND_URL
+/api/users/me`, config)
         .then((res) => {
           localStorage.setItem("user", JSON.stringify(res.data));
           setuser(res.data);
@@ -46,7 +47,8 @@ function Profile() {
     };
     await axios
       .post(
-        `http://localhost:8000/api/users/me`,
+        `process.env.REACT_APP_BACKEND_URL
+/api/users/me`,
         formData,
         config
       )

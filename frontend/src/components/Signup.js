@@ -21,7 +21,8 @@ function SignUp() {
     // console.log(JSON.stringify(formData));
     await axios
       .post(
-        "http://localhost:8000/api/users/register/",
+        "process.env.REACT_APP_BACKEND_URL
+/api/users/register/",
         formData
       )
       .then((res) => {
